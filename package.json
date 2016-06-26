@@ -1,0 +1,42 @@
+{
+  "name": "serverless-vote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "master:build": "browserify -o ./docs/js/master.js -t [ babelify --presets [ es2015 react ] ] lib/master/master.js",
+    "master:watch": "watchify -v -d -o ./docs/js/master.js -t [ babelify --presets [ es2015 react ] ] lib/master/master.js",
+    "slave:build": "browserify -o ./docs/js/slave.js -t [ babelify --presets [ es2015 react ] ] lib/slave/slave.js",
+    "slave:watch": "watchify -v -d -o ./docs/js/slave.js -t [ babelify --presets [ es2015 react ] ] lib/slave/slave.js",
+    "jsx:build": "npm run master:build && npm run slave:build",
+    "start": "python -m SimpleHTTPServer",
+    "lint": "eslint lib/*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3",
+    "mqtt-router": "^0.5.0",
+    "mqttpress": "^1.0.1",
+    "uuid": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "^5.2.2",
+    "flux": "^2.1.1",
+    "mqtt": "^1.11.2",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.5.1",
+    "superagent": "^2.0.0",
+    "watchify": "^3.7.0"
+  }
+}

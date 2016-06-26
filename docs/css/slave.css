@@ -1,0 +1,17 @@
+body {
+		background: white;
+		font-family: Noto Serif;
+}
+
+h2 {
+		font-weight: bold;
+		font-size: 32pt;
+		marging-top: 10px;
+}
+
+li {
+		font-weight: bold;
+		font-size: 30pt;
+		list-style-type: upper-alpha;
+		font-family: Noto Serif;
+}
