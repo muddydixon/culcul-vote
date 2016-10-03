@@ -1,11 +1,11 @@
 body {
 		background: white;
-		font-family: Noto Serif;
+		font-family: "Muli, sans-serif";
 }
 
 h2 {
 		font-weight: bold;
-		font-size: 32pt;
+		font-size: 36pt;
 		marging-top: 10px;
 }
 
@@ -13,5 +13,23 @@ li {
 		font-weight: bold;
 		font-size: 30pt;
 		list-style-type: upper-alpha;
-		font-family: Noto Serif;
+}
+
+.bar {
+		display: inline-block;
+		height: 36px;
+		background: red;
+}
+
+.result-count {
+		font-size: 360pt;
+		font-weight: bold;
+}
+
+.result-yesno {
+		font-size: 36pt;
+}
+
+.result-yesno .bar {
+		height: 100px;
 }
