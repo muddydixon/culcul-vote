@@ -32,4 +32,6 @@ li {
 
 .result-yesno .bar {
 		height: 100px;
+		color: white;
+		padding: 20px;
 }
