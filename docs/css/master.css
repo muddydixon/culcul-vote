@@ -1,3 +1,13 @@
 li {
 		list-style-type: upper-alpha;
 }
+header.navbar {
+		margin-bottom: 5px;
+}
+.page-header {
+		margin-top: 10px;
+		background: #CCC;
+		width: 100%;
+		position: fixed;
+		border: 0;
+}
