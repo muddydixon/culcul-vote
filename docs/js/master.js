@@ -231,7 +231,7 @@ exports.default = {
   },
   ping: function ping(app) {
     console.log("ping");
-    app.send("" + _constants2.default.TOPICS.EVENT_PING, {});
+    app.send("" + _constants2.default.TOPICS.EVENT_PING, { eventType: "ping", id: -1 });
   },
   summarize: function summarize(vote, answerId) {
     if (typeof answerId === "undefined") return 0;
@@ -439,14 +439,31 @@ var Answer = function (_Component) {
       });
     }
   }, {
-    key: "render",
-    value: function render() {
+    key: "onLightOff",
+    value: function onLightOff(ev) {
+      var _this3 = this;
+
       var _props2 = this.props;
       var answer = _props2.answer;
-      var vote = _props2.vote;
       var status = _props2.status;
-      var answerId = _props2.answerId;
       var countType = _props2.countType;
+
+      var ids = _lodash2.default.uniq(answer.votes.map(function (v) {
+        return v.from;
+      }));
+      ids.forEach(function (id) {
+        _eventAction2.default.lotOff(_this3.props.app, null, id);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _props3 = this.props;
+      var answer = _props3.answer;
+      var vote = _props3.vote;
+      var status = _props3.status;
+      var answerId = _props3.answerId;
+      var countType = _props3.countType;
 
       var _ref = status ? status.split("/") : [];
 
@@ -481,6 +498,13 @@ var Answer = function (_Component) {
             { className: "btn btn-danger btn-sm", onClick: this.onLightOn.bind(this), __self: this
             },
             "点灯"
+          ),
+          " ",
+          _react2.default.createElement(
+            "button",
+            { className: "btn btn-danger btn-sm", onClick: this.onLightOff.bind(this), __self: this
+            },
+            "消灯"
           ),
           " ",
           _react2.default.createElement(
@@ -1196,6 +1220,9 @@ var Lot = function (_Component) {
       var event = this.props.event;
       this.state.winners.forEach(function (winnerId) {
         _eventAction2.default.lotOff(_this3.props.app, event.id, winnerId);
+      });
+      this.setState({
+        winners: []
       });
       console.groupEnd("lotoff");
     }
