@@ -864,27 +864,20 @@ var EventDetail = function (_Component) {
           " ",
           _react2.default.createElement(
             "button",
-            { className: "btn btn-info", onClick: this.forward.bind(this), __self: this
-            },
-            "進む"
-          ),
-          " ",
-          _react2.default.createElement(
-            "button",
             { className: "btn btn-info", onClick: this.backward.bind(this), __self: this
             },
             "戻る"
           ),
           " ",
-          _react2.default.createElement(_lot2.default, { app: this.props.app, event: event, __self: this
-          }),
           _react2.default.createElement(
             "button",
-            { className: "btn btn-success", onClick: this.ping.bind(this), __self: this
+            { className: "btn btn-info", onClick: this.forward.bind(this), __self: this
             },
-            "存在確認"
+            "進む"
           ),
           " ",
+          _react2.default.createElement(_lot2.default, { app: this.props.app, event: event, __self: this
+          }),
           _react2.default.createElement(
             "a",
             { target: "_blank", className: "btn btn-success", href: "./slave.html?id=" + event.id + "&broker=" + broker + "&prefix=" + prefix, __self: this
@@ -2343,6 +2336,10 @@ module.exports = function (opts) {
     if (type === "answer" && st === "play" && ["barup", "button1", "button2", "button3"].indexOf(res.data.eventType) >= 0) {
       _eventAction2.default.vote(eventId, voteId, answerId, res.from, res.data.eventType);
     }
+  });
+
+  app.hear("" + _constants2.default.TOPICS.PING, function (res) {
+    console.log(res);
   });
 
   return app;
