@@ -1590,10 +1590,11 @@ var NewVote = function (_Component) {
     value: function submitEasyVote(ev) {
       ev.preventDefault();
       var easyType = ev.target.id;
+      var title = ev.target.title;
 
-      var answers = easyType === "Count" ? ["Yes"] : easyType === "YesNo" ? ["Yes", "No"] : [" ", " ", " "];
+      var answers = easyType === "Count" ? [" "] : easyType === "YesNo" ? ["はい", "いいえ"] : easyType === "AB" ? [" ", " "] : [" ", " ", " "];
       var answerType = easyType === "Count" ? "sequence" : "simultaneous";
-      this.props.onSubmit("アンケート " + easyType, answerType, "once", "aftervote", answers);
+      this.props.onSubmit("" + title, answerType, "once", "aftervote", answers);
     }
   }, {
     key: "render",
@@ -1617,7 +1618,7 @@ var NewVote = function (_Component) {
         " ",
         _react2.default.createElement(
           "button",
-          { className: "btn btn-success", id: "Count", onClick: this.submitEasyVote.bind(this), __self: this
+          { className: "btn btn-success", id: "Count", title: "集計", onClick: this.submitEasyVote.bind(this), __self: this
           },
           _react2.default.createElement(
             "i",
@@ -1625,12 +1626,12 @@ var NewVote = function (_Component) {
             },
             " "
           ),
-          "簡易質問追加 (カウント)"
+          "簡易質問追加 (集計)"
         ),
         " ",
         _react2.default.createElement(
           "button",
-          { className: "btn btn-success", id: "YesNo", onClick: this.submitEasyVote.bind(this), __self: this
+          { className: "btn btn-success", id: "YesNo", title: "はい/いいえ", onClick: this.submitEasyVote.bind(this), __self: this
           },
           _react2.default.createElement(
             "i",
@@ -1638,12 +1639,25 @@ var NewVote = function (_Component) {
             },
             " "
           ),
-          "簡易質問追加 (Yes/No)"
+          "簡易質問追加 (はい/いいえ)"
         ),
         " ",
         _react2.default.createElement(
           "button",
-          { className: "btn btn-success", id: "three", onClick: this.submitEasyVote.bind(this), __self: this
+          { className: "btn btn-success", id: "AB", title: "A/B", onClick: this.submitEasyVote.bind(this), __self: this
+          },
+          _react2.default.createElement(
+            "i",
+            { className: "fa fa-plus", __self: this
+            },
+            " "
+          ),
+          "簡易質問追加 (A/B)"
+        ),
+        " ",
+        _react2.default.createElement(
+          "button",
+          { className: "btn btn-success", id: "three", title: "三択", onClick: this.submitEasyVote.bind(this), __self: this
           },
           _react2.default.createElement(
             "i",
