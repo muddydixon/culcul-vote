@@ -6,8 +6,10 @@ header.navbar {
 }
 .page-header {
 		margin-top: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		background: #CCC;
-		width: 100%;
+		width: inherit;
 		position: fixed;
 		border: 0;
 }
