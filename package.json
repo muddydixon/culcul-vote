@@ -18,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "commander": "^2.9.0",
     "font-awesome": "^4.6.3",
     "mqtt-router": "^0.5.0",
     "mqttpress": "^1.0.1",
