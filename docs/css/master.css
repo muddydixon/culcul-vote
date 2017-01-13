@@ -6,8 +6,18 @@ header.navbar {
 }
 .page-header {
 		margin-top: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		background: #CCC;
-		width: 100%;
+		width: inherit;
 		position: fixed;
 		border: 0;
+}
+
+@media only screen
+and (min-device-width:768px)
+and (max-device-width:1024px) {
+	.vote-container {
+		margin-top: 200px 			
+	}	
 }
