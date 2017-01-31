@@ -104,22 +104,22 @@ a.navbar-brand {
 	font-size: 22px;
 }
 
-.page-header > .btn.btn-info:last-child {
+.page-header > .btn.btn-info.sub-btn {
 	background-image: linear-gradient(to bottom, #f0ad4e 0, #eb9316 100%);
 	border-color: #e38d13;
 }
 
-.page-header > .btn.btn-info:last-child:hover {
+.page-header > .btn.btn-info.sub-btn:hover {
 	background-color: #eb9316;
 	border-color: #d58512;
 }
 
-.page-header > .btn.btn-info:last-child:active {
+.page-header > .btn.btn-info.sub-btn:active {
 	background-color: #eb9316;
 	border-color: #e38d13;
 }
 
-.page-header > .btn.btn-info:last-child:focus {
+.page-header > .btn.btn-info.sub-btn:focus {
 	background-color: #eb9316;
 }
 
