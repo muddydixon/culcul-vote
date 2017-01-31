@@ -1,23 +1,209 @@
-li {
-		list-style-type: upper-alpha;
-}
-header.navbar {
-		margin-bottom: 5px;
-}
-.page-header {
-		margin-top: 10px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		background: #CCC;
-		width: inherit;
-		position: fixed;
-		border: 0;
+body {
+	font-family: Meiryo, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	overflow: hidden;
+	overflow-y: scroll;
 }
 
-@media only screen
-and (min-device-width:768px)
-and (max-device-width:1024px) {
-	.vote-container {
-		margin-top: 200px
-	}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+}
+
+.navbar {
+	background: #000;
+	border: none;
+	margin: 0;
+}
+
+.navbar + .container {
+	position: relative;
+	background: #e2e2e2;
+	padding: 20px 16px;
+}
+
+.navbar + .container:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	display: block;
+	width: 100vw;
+	height: 100%;
+	background: #e2e2e2;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: -1;
+}
+
+a.navbar-brand {
+	color: #FF4800;
+	font-weight: 700;
+	text-shadow: none;
+}
+
+.navbar-nav > li > a {
+	color: #fff;
+	text-shadow: none;
+}
+
+.navbar-nav > li > a:hover {
+	background: #FF4800;
+}
+
+.container > div > .container {
+	width: 100%;
+	padding: 0;
+}
+
+.container > div > .container:first-child {
+	margin-top: -70px;
+}
+
+.container > div > .container:last-child {
+	padding-left: 270px;
+	padding-bottom: 350px;
+}
+
+.page-header {
+	position: fixed;
+	top: 302px;
+	width: 250px;
+	background: #ffffff;
+	border-bottom: 1px solid #eee;
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 20px 24px;
+	margin: 0;
+}
+
+.page-header:before {
+	content: "";
+	position: absolute;
+	top: 20%;
+	right: 0;
+	border: solid transparent;
+	border-left-color: #fff;
+	border-width: 10px;
+	-webkit-transform: translate(100%, 0);
+	-ms-transform: translate(100%, 0);
+	transform: translate(100%, 0);
+}
+
+.page-header > .btn {
+	display: block;
+	width: 100%;
+	margin: 8px 0;
+}
+
+.page-header > .btn:nth-child(2) {
+	margin-top: 16px;
+}
+
+.page-header > .btn:nth-child(-n+3) {
+	font-size: 22px;
+}
+
+.page-header > .btn.btn-info:last-child {
+	background-image: linear-gradient(to bottom, #f0ad4e 0, #eb9316 100%);
+	border-color: #e38d13;
+}
+
+.page-header > .btn.btn-info:last-child:hover {
+	background-color: #eb9316;
+	border-color: #d58512;
+}
+
+.page-header > .btn.btn-info:last-child:active {
+	background-color: #eb9316;
+	border-color: #e38d13;
+}
+
+.page-header > .btn.btn-info:last-child:focus {
+	background-color: #eb9316;
+}
+
+.page-header .row {
+	display: -webkit-flex !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	background: #f3f3f3;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	padding: 16px 10px;
+	margin: 20px -24px;
+}
+
+.page-header .row > div {
+	-webkit-flex: 1 0 0%;
+	-ms-flex: 1 0 0%;
+	flex: 1 0 0%;
+	width: 100%;
+}
+
+.page-header .row > div > .form-control {
+	margin-bottom: 8px;
+}
+
+.page-header > *,
+.page-header > * > *,
+.page-header > * > * > * {
+	vertical-align: middle;
+}
+
+.page-header .row .btn:nth-child(2),
+.panel-body > .container .btn:nth-child(2) {
+	background: #868686;
+	border-color: #797979;
+}
+
+.panel {
+	margin-left: 270px;
+}
+
+.panel-heading {
+	padding: 16px 24px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+	background: rgba(0, 0, 0, 0.05);
+	margin: 0;
+}
+
+.panel-heading span:nth-child(1) {
+	display: block;
+	width: 100%;
+	height: 6px;
+}
+
+.panel-heading span:nth-child(n+2) {
+	display: none;
+}
+
+.panel-heading .btn-warning,
+.panel-heading .btn-warning:active {
+	cursor: text;
+	background: transparent;
+	box-shadow: none;
+	border-color: rgba(0, 0, 0, 0.18);
+	border-radius: 0;
+	outline: 0;
+	color: rgba(0, 0, 0, 0.7);
+	text-shadow: none;
+}
+
+.panel-body > .container {
+	width: 100%;
+}
+
+.panel-body ol,
+.panel-body ul {
+	padding-left: 20px;
+}
+
+.panel-footer {
+	background: rgba(217, 0, 0, 0.06) !important;
+	text-align: right;
+	margin: 16px -16px -16px;
 }
