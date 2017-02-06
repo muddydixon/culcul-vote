@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "master:build": "browserify -o ./docs/js/master.js -t [ babelify --presets [ es2015 react ] ] lib/master/master.js",
-    "master:watch": "watchify -v -d -o ./docs/js/master.js -t [ babelify --presets [ es2015 react ] ] lib/master/master.js",
-    "slave:build": "browserify -o ./docs/js/slave.js -t [ babelify --presets [ es2015 react ] ] lib/slave/slave.js",
-    "slave:watch": "watchify -v -d -o ./docs/js/slave.js -t [ babelify --presets [ es2015 react ] ] lib/slave/slave.js",
-    "jsx:build": "npm run master:build && npm run slave:build",
+    "master:build": "browserify -o ./docs/js/${ENV}master.js -t [ babelify --presets [ es2015 react ] ] lib/master/master.js",
+    "master:watch": "watchify -v -d -o ./docs/js/${ENV}master.js -t [ babelify --presets [ es2015 react ] ] lib/master/master.js",
+    "slave:build": "browserify -o ./docs/js/${ENV}slave.js -t [ babelify --presets [ es2015 react ] ] lib/slave/slave.js",
+    "slave:watch": "watchify -v -d -o ./docs/js/${ENV}slave.js -t [ babelify --presets [ es2015 react ] ] lib/slave/slave.js",
+    "build": "npm run master:build && npm run slave:build",
+    "build:stage": "ENV=stg_ npm run master:build && ENV=stg_ npm run slave:build",
     "start": "python -m SimpleHTTPServer",
     "lint": "eslint lib/*"
   },
