@@ -910,7 +910,7 @@ module.exports = function (opts) {
         answerId = _res$data$status$spli2[3],
         st = _res$data$status$spli2[4];
 
-    if (type === "answer" && st === "stop") {
+    if (type === "vote" && st === "stop") {
       _eventAction2.default.fetch(app, eventId);
     }
   });
