@@ -862,13 +862,32 @@ var EventDetail = function (_Component) {
       if (type === "vote" && st === "play") {
         var targetElement = document.getElementById("voteId-" + voteId);
         _scroll3.default.top((0, _scrollDoc2.default)(), targetElement.getBoundingClientRect().top - 50, function (error, scrollTop) {
-          console.log(error);
+          if (error) console.log(error);
         });
-
-        // const rect = targetElement.getBoundingClientRect() ;
-        // window.scrollTo( rect.left + window.pageXOffset, rect.top + window.pageYOffset - 50);
+        // this.applyHighLight(targetElement);
+        var voteElements = document.getElementsByClassName("panel");
+        for (var i = 0; i < voteElements.length; i++) {
+          if (voteElements[i].hasAttribute("id")) {
+            if (voteElements[i].id.includes("voteId-") && voteElements[i].classList.contains("high-light")) {
+              voteElements[i].classList.remove("high-light");
+            }
+          }
+        }
+        targetElement.classList.add("high-light");
       }
     }
+    // applyHighLight(targetElement){
+    //   const otherElements = document.getElementsByClassName("panel").map(el => {
+    //     if(el.hasAttribute(id)){
+    //       if(el.id.includes("voteId-")) return el;
+    //     }
+    //   });
+    //   otherElements.forEach(el => {
+    //     el.classList.remove("high-light");
+    //   });
+    //   targetElement.setAttribute("class", "high-light");
+    // }
+
   }, {
     key: "ping",
     value: function ping() {

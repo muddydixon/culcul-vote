@@ -164,6 +164,14 @@ a.navbar-brand {
 	margin-left: 270px;
 }
 
+.high-light > .panel-heading {
+	background: rgba(0, 217, 0, 0.12);
+}
+.high-light > .panel-footer {
+	background: rgba(217, 0, 0, 0.06) !important;
+}
+
+
 .panel-heading {
 	padding: 16px 24px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.03);
