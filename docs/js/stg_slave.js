@@ -1001,7 +1001,7 @@ module.exports = function (opts) {
     var answerId = _res$data$status$spli2[3];
     var st = _res$data$status$spli2[4];
 
-    if (type === "answer" && st === "stop") {
+    if (type === "vote" && st === "stop") {
       _eventAction2.default.fetch(app, eventId);
     }
   });
@@ -1123,9 +1123,9 @@ var App = function (_Component) {
         },
         _react2.default.createElement(_header2.default, { event: this.state.event, __self: this
         }),
+        _react2.default.cloneElement(this.props.children, { data: this.state, app: app }),
         _react2.default.createElement(_error2.default, { error: this.state.error, __self: this
         }),
-        _react2.default.cloneElement(this.props.children, { data: this.state, app: app }),
         _react2.default.createElement(_footer2.default, { event: this.state.event, __self: this
         })
       );
@@ -17377,7 +17377,7 @@ class MQTTPress extends EventEmitter {
     this._isStarted = true;
     this._mqtt.on("message", (topic, message)=>{
       debug(`recv: ${topic}, ${message} ${JSON.stringify(this._handlers)}`);
-      console.log(`recv: ${topic}, ${message} ${JSON.stringify(this._handlers)}`);
+      // console.log(`recv: ${topic}, ${message} ${JSON.stringify(this._handlers)}`);
       const topicArr = topic.split("/");
       const topicPrefix = topicArr[0];
       const targetTopic = topicArr.slice(1).join("/");
