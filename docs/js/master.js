@@ -836,7 +836,17 @@ var EventDetail = function (_Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
-      this.scroll(this.props.data.status);
+      var _props$data$status$sp = this.props.data.status.split("/"),
+          _props$data$status$sp2 = _slicedToArray(_props$data$status$sp, 5),
+          type = _props$data$status$sp2[0],
+          evId = _props$data$status$sp2[1],
+          voteId = _props$data$status$sp2[2],
+          answerId = _props$data$status$sp2[3],
+          st = _props$data$status$sp2[4];
+
+      if (type === "vote" && st === "play" && answerId === "-1") {
+        this.scroll(voteId);
+      }
     }
   }, {
     key: "onAddVote",
@@ -869,31 +879,21 @@ var EventDetail = function (_Component) {
     }
   }, {
     key: "scroll",
-    value: function scroll(next) {
-      var _next$split = next.split("/"),
-          _next$split2 = _slicedToArray(_next$split, 5),
-          type = _next$split2[0],
-          evId = _next$split2[1],
-          voteId = _next$split2[2],
-          answerId = _next$split2[3],
-          st = _next$split2[4];
+    value: function scroll(voteId) {
+      var targetElement = document.getElementById("voteId-" + voteId);
+      var positionX = window.pageXOffset;
+      var positionY = targetElement.getBoundingClientRect().top + window.pageYOffset - 50;
+      window.scrollTo(positionX, positionY);
 
-      if (type === "vote" && st === "play" && answerId === "-1") {
-        var targetElement = document.getElementById("voteId-" + voteId);
-        var positionX = window.pageXOffset;
-        var positionY = targetElement.getBoundingClientRect().top + window.pageYOffset - 50;
-        window.scrollTo(positionX, positionY);
-
-        var voteElements = document.getElementsByClassName("panel");
-        for (var i = 0; i < voteElements.length; i++) {
-          if (voteElements[i].hasAttribute("id")) {
-            if (voteElements[i].id.includes("voteId-") && voteElements[i].classList.contains("high-light")) {
-              voteElements[i].classList.remove("high-light");
-            }
+      var voteElements = document.getElementsByClassName("panel");
+      for (var i = 0; i < voteElements.length; i++) {
+        if (voteElements[i].hasAttribute("id")) {
+          if (voteElements[i].id.includes("voteId-") && voteElements[i].classList.contains("high-light")) {
+            voteElements[i].classList.remove("high-light");
           }
         }
-        targetElement.classList.add("high-light");
       }
+      targetElement.classList.add("high-light");
     }
   }, {
     key: "ping",
