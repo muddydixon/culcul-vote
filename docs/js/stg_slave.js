@@ -25,7 +25,7 @@ var Error = function (_Component) {
   function Error() {
     _classCallCheck(this, Error);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Error).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Error.__proto__ || Object.getPrototypeOf(Error)).apply(this, arguments));
   }
 
   _createClass(Error, [{
@@ -36,17 +36,13 @@ var Error = function (_Component) {
       if (!error) return null;
       return _react2.default.createElement(
         "div",
-        { classaName: "container", __self: this
-        },
+        { classaName: "container" },
         _react2.default.createElement(
           "div",
-          { className: "alert alert-danger text-center", role: "alert", __self: this
-          },
+          { className: "alert alert-danger text-center", role: "alert" },
           _react2.default.createElement(
             "h2",
-            {
-              __self: this
-            },
+            null,
             error.message
           )
         )
@@ -126,7 +122,7 @@ var ErrorStore = function (_ReduceStore) {
   function ErrorStore() {
     _classCallCheck(this, ErrorStore);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ErrorStore).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ErrorStore.__proto__ || Object.getPrototypeOf(ErrorStore)).apply(this, arguments));
   }
 
   _createClass(ErrorStore, [{
@@ -226,8 +222,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 var _uuid = require("uuid");
 
 var _uuid2 = _interopRequireDefault(_uuid);
@@ -274,17 +268,11 @@ exports.default = {
     var countType = vote.countType;
 
     if (countType === "once") {
-      var _ret = function () {
-        var aids = {};
-        votes.forEach(function (v) {
-          return aids[v.from] = v.time;
-        });
-        return {
-          v: Object.keys(aids).length
-        };
-      }();
-
-      if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
+      var aids = {};
+      votes.forEach(function (v) {
+        return aids[v.from] = v.time;
+      });
+      return Object.keys(aids).length;
     } else {
       return votes.length;
     }
@@ -319,15 +307,13 @@ var state = null;
 exports.default = {
   status: function status(_status) {
     return new Promise(function (resolve, reject) {
-      var _ref = _status ? _status.split("/") : [];
-
-      var _ref2 = _slicedToArray(_ref, 5);
-
-      var type = _ref2[0];
-      var eventId = _ref2[1];
-      var voteId = _ref2[2];
-      var answerId = _ref2[3];
-      var st = _ref2[4];
+      var _ref = _status ? _status.split("/") : [],
+          _ref2 = _slicedToArray(_ref, 5),
+          type = _ref2[0],
+          eventId = _ref2[1],
+          voteId = _ref2[2],
+          answerId = _ref2[3],
+          st = _ref2[4];
 
       if (type === "answer" && st === "pause") {
         _dispatcher2.default.dispatch({ type: _constants2.default.RESET_ANSWER });
@@ -367,7 +353,7 @@ var Footer = function (_Component) {
   function Footer() {
     _classCallCheck(this, Footer);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
   }
 
   _createClass(Footer, [{
@@ -378,14 +364,11 @@ var Footer = function (_Component) {
       if (!event) return null;
       return _react2.default.createElement(
         "footer",
-        { className: "footer", style: { position: "absolute", bottom: 0, width: "100%" }, __self: this
-        },
+        { className: "footer", style: { position: "absolute", bottom: 0, width: "100%" } },
         _react2.default.createElement(
           "div",
-          { className: "container text-center", __self: this
-          },
-          _react2.default.createElement("img", { src: "./assets/images/nifty-logo.png", style: { display: "inline-block" }, __self: this
-          })
+          { className: "container text-center" },
+          _react2.default.createElement("img", { src: "./assets/images/nifty-logo.png", style: { display: "inline-block" } })
         )
       );
     }
@@ -426,7 +409,7 @@ var Header = function (_Component) {
   function Header() {
     _classCallCheck(this, Header);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Header).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
   }
 
   _createClass(Header, [{
@@ -437,35 +420,27 @@ var Header = function (_Component) {
       if (!event) return null;
       return _react2.default.createElement(
         "header",
-        { className: "navbar navbar-static-top bs-docs-nav", style: { height: 50, marginTop: 30 }, __self: this
-        },
+        { className: "navbar navbar-static-top bs-docs-nav", style: { height: 50, marginTop: 30 } },
         _react2.default.createElement(
           "div",
-          { className: "container", style: { height: 50, lineHeight: "80px", background: "white" }, __self: this
-          },
+          { className: "container", style: { height: 50, lineHeight: "80px", background: "white" } },
           _react2.default.createElement(
             "a",
-            { href: "../", className: "navbar-brand", style: { padding: 0 }, __self: this
-            },
-            _react2.default.createElement("img", { height: "50px", src: "./assets/images/culcul-logo.gif", __self: this
-            })
+            { href: "../", className: "navbar-brand", style: { padding: 0 } },
+            _react2.default.createElement("img", { height: "50px", src: "./assets/images/culcul-logo.gif" })
           ),
           _react2.default.createElement(
             "div",
-            { className: "text-right", style: { lineHeight: "50px", fontFamily: "Muli, sans-serif", letterSpacing: "3px" }, __self: this
-            },
+            { className: "text-right", style: { lineHeight: "50px", fontFamily: "Muli, sans-serif", letterSpacing: "3px" } },
             _react2.default.createElement(
               "h4",
-              { style: { display: "inline-block" }, __self: this
-              },
+              { style: { display: "inline-block" } },
               "Supported By "
             ),
             _react2.default.createElement(
               "a",
-              { href: "../", __self: this
-              },
-              _react2.default.createElement("img", { height: "50px", src: (event.sponsor || {}).banner || "./assets/images/iot-dc.jpg", __self: this
-              })
+              { href: "../" },
+              _react2.default.createElement("img", { height: "50px", src: (event.sponsor || {}).banner || "./assets/images/iot-dc.jpg" })
             )
           )
         )
@@ -512,46 +487,38 @@ var VoteBase = function (_Component) {
   function VoteBase() {
     _classCallCheck(this, VoteBase);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(VoteBase).apply(this, arguments));
+    return _possibleConstructorReturn(this, (VoteBase.__proto__ || Object.getPrototypeOf(VoteBase)).apply(this, arguments));
   }
 
   _createClass(VoteBase, [{
     key: "renderResultCount",
     value: function renderResultCount() {
-      var _props = this.props;
-      var event = _props.event;
-      var status = _props.status;
-      var answers = _props.answers;
+      var _props = this.props,
+          event = _props.event,
+          status = _props.status,
+          answers = _props.answers;
 
-      var _ref = status ? status.split("/") : [];
-
-      var _ref2 = _slicedToArray(_ref, 5);
-
-      var type = _ref2[0];
-      var eventId = _ref2[1];
-      var voteId = _ref2[2];
-      var answerId = _ref2[3];
-      var st = _ref2[4];
-
+      var _ref = status ? status.split("/") : [],
+          _ref2 = _slicedToArray(_ref, 5),
+          type = _ref2[0],
+          eventId = _ref2[1],
+          voteId = _ref2[2],
+          answerId = _ref2[3],
+          st = _ref2[4];
 
       var cnt = _eventAction2.default.summarize(event.votes[+voteId], 0) || 0;
       return _react2.default.createElement(
         "div",
-        {
-          __self: this
-        },
+        null,
         _react2.default.createElement(
           "h2",
-          {
-            __self: this
-          },
+          null,
           event.votes[+voteId].title,
           " 結果表示"
         ),
         _react2.default.createElement(
           "div",
-          { className: "result-count text-center", __self: this
-          },
+          { className: "result-count text-center" },
           cnt
         )
       );
@@ -559,21 +526,18 @@ var VoteBase = function (_Component) {
   }, {
     key: "renderResultYesNo",
     value: function renderResultYesNo() {
-      var _props2 = this.props;
-      var event = _props2.event;
-      var status = _props2.status;
-      var answers = _props2.answers;
+      var _props2 = this.props,
+          event = _props2.event,
+          status = _props2.status,
+          answers = _props2.answers;
 
-      var _ref3 = status ? status.split("/") : [];
-
-      var _ref4 = _slicedToArray(_ref3, 5);
-
-      var type = _ref4[0];
-      var eventId = _ref4[1];
-      var voteId = _ref4[2];
-      var answerId = _ref4[3];
-      var st = _ref4[4];
-
+      var _ref3 = status ? status.split("/") : [],
+          _ref4 = _slicedToArray(_ref3, 5),
+          type = _ref4[0],
+          eventId = _ref4[1],
+          voteId = _ref4[2],
+          answerId = _ref4[3],
+          st = _ref4[4];
 
       var cnts = event.votes[+voteId].answers.map(function (answer, id) {
         return _eventAction2.default.summarize(event.votes[+voteId], id) || 0;
@@ -585,48 +549,37 @@ var VoteBase = function (_Component) {
 
       return _react2.default.createElement(
         "div",
-        { className: "result-yesno", __self: this
-        },
+        { className: "result-yesno" },
         _react2.default.createElement(
           "h2",
-          {
-            __self: this
-          },
+          null,
           event.votes[+voteId].title,
           " 結果表示"
         ),
         _react2.default.createElement(
           "div",
-          {
-            __self: this
-          },
+          null,
           _react2.default.createElement(
             "div",
-            { className: "row", __self: this
-            },
+            { className: "row" },
             _react2.default.createElement(
               "div",
-              { className: "col-md-6 text-left", style: { color: "red" }, __self: this
-              },
+              { className: "col-md-6 text-left", style: { color: "red" } },
               "Yes"
             ),
             _react2.default.createElement(
               "div",
-              { className: "col-md-6 text-right", style: { color: "blue" }, __self: this
-              },
+              { className: "col-md-6 text-right", style: { color: "blue" } },
               "No"
             )
           )
         ),
         _react2.default.createElement(
           "div",
-          {
-            __self: this
-          },
+          null,
           _react2.default.createElement(
             "div",
-            { className: "bar text-left", style: { background: "red", width: widths[0] + "%" }, __self: this
-            },
+            { className: "bar text-left", style: { background: "red", width: widths[0] + "%" } },
             cnts[0],
             " (",
             0 | 100 * cnts[0] / total,
@@ -634,8 +587,7 @@ var VoteBase = function (_Component) {
           ),
           _react2.default.createElement(
             "div",
-            { className: "bar text-right", style: { background: "blue", width: widths[1] + "%" }, __self: this
-            },
+            { className: "bar text-right", style: { background: "blue", width: widths[1] + "%" } },
             cnts[1],
             " (",
             0 | 100 * cnts[1] / total,
@@ -647,66 +599,51 @@ var VoteBase = function (_Component) {
   }, {
     key: "renderResult",
     value: function renderResult() {
-      var _this2 = this;
+      var _props3 = this.props,
+          event = _props3.event,
+          status = _props3.status,
+          answers = _props3.answers;
 
-      var _props3 = this.props;
-      var event = _props3.event;
-      var status = _props3.status;
-      var answers = _props3.answers;
-
-      var _ref5 = status ? status.split("/") : [];
-
-      var _ref6 = _slicedToArray(_ref5, 5);
-
-      var type = _ref6[0];
-      var eventId = _ref6[1];
-      var voteId = _ref6[2];
-      var answerId = _ref6[3];
-      var st = _ref6[4];
-
+      var _ref5 = status ? status.split("/") : [],
+          _ref6 = _slicedToArray(_ref5, 5),
+          type = _ref6[0],
+          eventId = _ref6[1],
+          voteId = _ref6[2],
+          answerId = _ref6[3],
+          st = _ref6[4];
 
       if (event.votes[+voteId].answers.length === 1) return this.renderResultCount();
       if (event.votes[+voteId].answers.length === 2 && event.votes[+voteId].answers[0].title === "Yes" && event.votes[+voteId].answers[1].title === "No") return this.renderResultYesNo();
 
       return _react2.default.createElement(
         "div",
-        {
-          __self: this
-        },
+        null,
         _react2.default.createElement(
           "h2",
-          {
-            __self: this
-          },
+          null,
           event.votes[+voteId].title,
           " 結果表示"
         ),
         _react2.default.createElement(
           "ol",
-          { style: { listStyleType: "upper-latin" }, __self: this
-          },
+          { style: { listStyleType: "upper-latin" } },
           event.votes[+voteId].answers.map(function (answer, id) {
             var cnt = _eventAction2.default.summarize(event.votes[+voteId], id) || 0;
             var style = { width: cnt * 2 };
 
             return _react2.default.createElement(
               "li",
-              { key: id, __self: _this2
-              },
+              { key: id },
               _react2.default.createElement(
                 "h2",
-                {
-                  __self: _this2
-                },
+                null,
                 answer.title
               ),
-              _react2.default.createElement("div", { className: "bar", style: style, __self: _this2
-              }),
+              _react2.default.createElement("div", { className: "bar", style: style }),
               " ",
               _react2.default.createElement(
                 "h2",
-                { style: { display: "inline-block", fontFamily: "Muli, sans-serif" }, __self: _this2
-                },
+                { style: { display: "inline-block", fontFamily: "Muli, sans-serif" } },
                 cnt
               )
             );
@@ -717,32 +654,25 @@ var VoteBase = function (_Component) {
   }, {
     key: "renderTitle",
     value: function renderTitle() {
-      var _props4 = this.props;
-      var event = _props4.event;
-      var status = _props4.status;
-      var answers = _props4.answers;
+      var _props4 = this.props,
+          event = _props4.event,
+          status = _props4.status,
+          answers = _props4.answers;
 
-      var _ref7 = status ? status.split("/") : [];
-
-      var _ref8 = _slicedToArray(_ref7, 5);
-
-      var type = _ref8[0];
-      var eventId = _ref8[1];
-      var voteId = _ref8[2];
-      var answerId = _ref8[3];
-      var st = _ref8[4];
-
+      var _ref7 = status ? status.split("/") : [],
+          _ref8 = _slicedToArray(_ref7, 5),
+          type = _ref8[0],
+          eventId = _ref8[1],
+          voteId = _ref8[2],
+          answerId = _ref8[3],
+          st = _ref8[4];
 
       return _react2.default.createElement(
         "div",
-        {
-          __self: this
-        },
+        null,
         _react2.default.createElement(
           "h2",
-          {
-            __self: this
-          },
+          null,
           event.votes[+voteId].title
         )
       );
@@ -750,56 +680,42 @@ var VoteBase = function (_Component) {
   }, {
     key: "renderProcess",
     value: function renderProcess() {
-      var _this3 = this;
+      var _props5 = this.props,
+          event = _props5.event,
+          status = _props5.status,
+          answers = _props5.answers;
 
-      var _props5 = this.props;
-      var event = _props5.event;
-      var status = _props5.status;
-      var answers = _props5.answers;
-
-      var _ref9 = status ? status.split("/") : [];
-
-      var _ref10 = _slicedToArray(_ref9, 5);
-
-      var type = _ref10[0];
-      var eventId = _ref10[1];
-      var voteId = _ref10[2];
-      var answerId = _ref10[3];
-      var st = _ref10[4];
-
+      var _ref9 = status ? status.split("/") : [],
+          _ref10 = _slicedToArray(_ref9, 5),
+          type = _ref10[0],
+          eventId = _ref10[1],
+          voteId = _ref10[2],
+          answerId = _ref10[3],
+          st = _ref10[4];
 
       return _react2.default.createElement(
         "div",
-        {
-          __self: this
-        },
+        null,
         _react2.default.createElement(
           "h2",
-          {
-            __self: this
-          },
+          null,
           event.votes[+voteId].title
         ),
         _react2.default.createElement(
           "ol",
-          { style: { fontSize: "x-large", background: "white", padding: "5px 100px" }, __self: this
-          },
+          { style: { fontSize: "x-large", background: "white", padding: "5px 100px" } },
           event.votes[+voteId].answers.map(function (answer, id) {
             if (event.votes[+voteId].answerType === "simultaneous") {
               var statusLabel = st === "pause" ? "待機中" : st === "play" ? "投票中" : "投票完了";
               return _react2.default.createElement(
                 "li",
-                { key: id, __self: _this3
-                },
+                { key: id },
                 _react2.default.createElement(
                   "h2",
-                  {
-                    __self: _this3
-                  },
+                  null,
                   answer.title
                 ),
-                _react2.default.createElement("i", { className: "fa fa-" + st, __self: _this3
-                }),
+                _react2.default.createElement("i", { className: "fa fa-" + st }),
                 " ",
                 statusLabel
               );
@@ -808,17 +724,13 @@ var VoteBase = function (_Component) {
               var _statusLabel = +answerId === id ? st === "pause" ? "待機中" : st === "play" ? "投票中" : "投票完了" : +answerId > id ? "投票完了" : "投票前";
               return _react2.default.createElement(
                 "li",
-                { key: id, __self: _this3
-                },
+                { key: id },
                 _react2.default.createElement(
                   "h2",
-                  {
-                    __self: _this3
-                  },
+                  null,
                   answer.title
                 ),
-                _react2.default.createElement("i", { className: statusIcon, __self: _this3
-                }),
+                _react2.default.createElement("i", { className: statusIcon }),
                 " ",
                 _statusLabel
               );
@@ -830,22 +742,20 @@ var VoteBase = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _props6 = this.props;
-      var event = _props6.event;
-      var status = _props6.status;
-      var answers = _props6.answers;
+      var _props6 = this.props,
+          event = _props6.event,
+          status = _props6.status,
+          answers = _props6.answers;
 
       if (!event) return null;
 
-      var _ref11 = status ? status.split("/") : [];
-
-      var _ref12 = _slicedToArray(_ref11, 5);
-
-      var type = _ref12[0];
-      var eventId = _ref12[1];
-      var voteId = _ref12[2];
-      var answerId = _ref12[3];
-      var st = _ref12[4];
+      var _ref11 = status ? status.split("/") : [],
+          _ref12 = _slicedToArray(_ref11, 5),
+          type = _ref12[0],
+          eventId = _ref12[1],
+          voteId = _ref12[2],
+          answerId = _ref12[3],
+          st = _ref12[4];
 
       if (!type) return null;
 
@@ -904,47 +814,40 @@ var VoteResult = function (_Component) {
   function VoteResult() {
     _classCallCheck(this, VoteResult);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(VoteResult).apply(this, arguments));
+    return _possibleConstructorReturn(this, (VoteResult.__proto__ || Object.getPrototypeOf(VoteResult)).apply(this, arguments));
   }
 
   _createClass(VoteResult, [{
     key: "render",
     value: function render() {
-      var _props$data = this.props.data;
-      var error = _props$data.error;
-      var event = _props$data.event;
-      var status = _props$data.status;
-      var answers = _props$data.answers;
+      var _props$data = this.props.data,
+          error = _props$data.error,
+          event = _props$data.event,
+          status = _props$data.status,
+          answers = _props$data.answers;
 
       if (!event) return null;
 
-      var _ref = status ? status.split("/") : [];
-
-      var _ref2 = _slicedToArray(_ref, 5);
-
-      var type = _ref2[0];
-      var eventId = _ref2[1];
-      var voteId = _ref2[2];
-      var answerId = _ref2[3];
-      var st = _ref2[4];
+      var _ref = status ? status.split("/") : [],
+          _ref2 = _slicedToArray(_ref, 5),
+          type = _ref2[0],
+          eventId = _ref2[1],
+          voteId = _ref2[2],
+          answerId = _ref2[3],
+          st = _ref2[4];
 
       return _react2.default.createElement(
         "div",
-        { className: "container", __self: this
-        },
+        { className: "container" },
         _react2.default.createElement(
           "h1",
-          { style: { color: "#999", fontSize: "x-large" }, __self: this
-          },
+          { style: { color: "#999", fontSize: "x-large" } },
           event.title
         ),
         _react2.default.createElement(
           "div",
-          {
-            __self: this
-          },
-          _react2.default.createElement(_voteBase2.default, { event: event, status: status, answers: answers, __self: this
-          })
+          null,
+          _react2.default.createElement(_voteBase2.default, { event: event, status: status, answers: answers })
         )
       );
     }
@@ -989,23 +892,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 module.exports = function (opts) {
   var app = (0, _mqttpress2.default)(opts);
   app.hear("" + _constants2.default.TOPICS.STATUS, function (res) {
-    _statusAction2.default.status(res.data.status);
+    var _res$data$status$spli = res.data.status.split("/"),
+        _res$data$status$spli2 = _slicedToArray(_res$data$status$spli, 5),
+        type = _res$data$status$spli2[0],
+        eventId = _res$data$status$spli2[1],
+        voteId = _res$data$status$spli2[2],
+        answerId = _res$data$status$spli2[3],
+        st = _res$data$status$spli2[4];
 
-    var _res$data$status$spli = res.data.status.split("/");
-
-    var _res$data$status$spli2 = _slicedToArray(_res$data$status$spli, 5);
-
-    var type = _res$data$status$spli2[0];
-    var eventId = _res$data$status$spli2[1];
-    var voteId = _res$data$status$spli2[2];
-    var answerId = _res$data$status$spli2[3];
-    var st = _res$data$status$spli2[4];
-
-    if (type === "vote" && st === "stop") {
-      _eventAction2.default.fetch(app, eventId);
-    }
+    (type === "vote" && st === "stop" ? _eventAction2.default.fetch(app, eventId) : Promise.resolve()).then(function () {
+      return _statusAction2.default.status(res.data.status);
+    });
   });
   app.hear("" + _constants2.default.TOPICS.EVENT_UPDATE, function (res) {
+    console.log("event-update");
     _eventAction2.default.update(res.data.event);
   });
 
@@ -1105,7 +1005,7 @@ var App = function (_Component) {
   function App() {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
   }
 
   _createClass(App, [{
@@ -1119,15 +1019,11 @@ var App = function (_Component) {
       // console.log(this.state);
       return _react2.default.createElement(
         "div",
-        { className: "row", __self: this
-        },
-        _react2.default.createElement(_header2.default, { event: this.state.event, __self: this
-        }),
+        { className: "row" },
+        _react2.default.createElement(_header2.default, { event: this.state.event }),
         _react2.default.cloneElement(this.props.children, { data: this.state, app: app }),
-        _react2.default.createElement(_error2.default, { error: this.state.error, __self: this
-        }),
-        _react2.default.createElement(_footer2.default, { event: this.state.event, __self: this
-        })
+        _react2.default.createElement(_error2.default, { error: this.state.error }),
+        _react2.default.createElement(_footer2.default, { event: this.state.event })
       );
     }
   }], [{
@@ -1154,14 +1050,11 @@ var App = function (_Component) {
 
 var router = _react2.default.createElement(
   _reactRouter.Router,
-  { history: _reactRouter.hashHistory, __self: undefined
-  },
+  { history: _reactRouter.hashHistory },
   _react2.default.createElement(
     _reactRouter.Route,
-    { path: "/", component: _utils.Container.create(App), __self: undefined
-    },
-    _react2.default.createElement(_reactRouter.IndexRoute, { component: _voteResult2.default, __self: undefined
-    })
+    { path: "/", component: _utils.Container.create(App) },
+    _react2.default.createElement(_reactRouter.IndexRoute, { component: _voteResult2.default })
   )
 );
 (0, _reactDom.render)(router, document.querySelector("#app"));
@@ -1199,7 +1092,7 @@ var AnswerStore = function (_ReduceStore) {
   function AnswerStore() {
     _classCallCheck(this, AnswerStore);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(AnswerStore).apply(this, arguments));
+    return _possibleConstructorReturn(this, (AnswerStore.__proto__ || Object.getPrototypeOf(AnswerStore)).apply(this, arguments));
   }
 
   _createClass(AnswerStore, [{
@@ -1260,7 +1153,7 @@ var EventStore = function (_ReduceStore) {
   function EventStore() {
     _classCallCheck(this, EventStore);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(EventStore).apply(this, arguments));
+    return _possibleConstructorReturn(this, (EventStore.__proto__ || Object.getPrototypeOf(EventStore)).apply(this, arguments));
   }
 
   _createClass(EventStore, [{
@@ -1318,7 +1211,7 @@ var StatusStore = function (_ReduceStore) {
   function StatusStore() {
     _classCallCheck(this, StatusStore);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(StatusStore).apply(this, arguments));
+    return _possibleConstructorReturn(this, (StatusStore.__proto__ || Object.getPrototypeOf(StatusStore)).apply(this, arguments));
   }
 
   _createClass(StatusStore, [{
@@ -17377,7 +17270,6 @@ class MQTTPress extends EventEmitter {
     this._isStarted = true;
     this._mqtt.on("message", (topic, message)=>{
       debug(`recv: ${topic}, ${message} ${JSON.stringify(this._handlers)}`);
-      // console.log(`recv: ${topic}, ${message} ${JSON.stringify(this._handlers)}`);
       const topicArr = topic.split("/");
       const topicPrefix = topicArr[0];
       const targetTopic = topicArr.slice(1).join("/");
