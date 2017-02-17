@@ -908,13 +908,9 @@ module.exports = function (opts) {
         answerId = _res$data$status$spli2[3],
         st = _res$data$status$spli2[4];
 
-    if (type === "vote" && st === "stop") {
-      _eventAction2.default.fetch(app, eventId).then(function () {
-        return _statusAction2.default.status(res.data.status);
-      });
-    } else {
-      _statusAction2.default.status(res.data.status);
-    }
+    (type === "vote" && st === "stop" ? _eventAction2.default.fetch(app, eventId) : Promise.resolve()).then(function () {
+      return _statusAction2.default.status(res.data.status);
+    });
   });
   app.hear("" + _constants2.default.TOPICS.EVENT_UPDATE, function (res) {
     console.log("event-update");
