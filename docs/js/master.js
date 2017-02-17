@@ -845,7 +845,9 @@ var EventDetail = function (_Component) {
           st = _props$data$status$sp2[4];
 
       if (type === "vote" && st === "play" && answerId === "-1") {
-        this.scroll(voteId);
+        var targetElement = document.getElementById("voteId-" + voteId);
+        this.scroll(targetElement);
+        this.applyHighLight(targetElement);
       }
     }
   }, {
@@ -879,12 +881,14 @@ var EventDetail = function (_Component) {
     }
   }, {
     key: "scroll",
-    value: function scroll(voteId) {
-      var targetElement = document.getElementById("voteId-" + voteId);
+    value: function scroll(targetElement) {
       var positionX = window.pageXOffset;
-      var positionY = targetElement.getBoundingClientRect().top + window.pageYOffset - 50;
+      var positionY = targetElement.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo(positionX, positionY);
-
+    }
+  }, {
+    key: "applyHighLight",
+    value: function applyHighLight(targetElement) {
       var voteElements = document.getElementsByClassName("panel");
       for (var i = 0; i < voteElements.length; i++) {
         if (voteElements[i].hasAttribute("id")) {
