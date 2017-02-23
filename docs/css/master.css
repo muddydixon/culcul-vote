@@ -67,7 +67,7 @@ a.navbar-brand:hover {
 	height: 34px;
 }
 
-.switch > input {
+.switch > #toggle-trigger {
 	display: none;
 }
 
