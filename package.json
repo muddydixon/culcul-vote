@@ -19,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "bootstrap-toggle": "^2.2.2",
     "commander": "^2.9.0",
     "font-awesome": "^4.6.3",
     "mqtt-router": "^0.5.0",
