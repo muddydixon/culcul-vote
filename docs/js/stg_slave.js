@@ -90,7 +90,9 @@ exports.default = {
   SET_STATUS: "SET_STATUS",
   RESET_STATUS: "RESET_STATUS",
 
-  ERROR: "ERROR"
+  ERROR: "ERROR",
+  CONNACK_TIMER: 5000,
+  SCROLL_SPEED: 300
 };
 
 },{}],3:[function(require,module,exports){
@@ -613,7 +615,7 @@ var VoteBase = function (_Component) {
           st = _ref6[4];
 
       if (event.votes[+voteId].answers.length === 1) return this.renderResultCount();
-      if (event.votes[+voteId].answers.length === 2 && event.votes[+voteId].answers[0].title === "Yes" && event.votes[+voteId].answers[1].title === "No") return this.renderResultYesNo();
+      if (event.votes[+voteId].answers.length === 2 && event.votes[+voteId].answers[0].title === "はい" && event.votes[+voteId].answers[1].title === "いいえ") return this.renderResultYesNo();
 
       return _react2.default.createElement(
         "div",
